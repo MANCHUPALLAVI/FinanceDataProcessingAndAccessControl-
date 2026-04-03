@@ -46,7 +46,7 @@ All users must authenticate with username (email) and password.
 
 **API Endpoints**
 
-**1️⃣. Authentication**
+**1️⃣ Authentication**
 
 Use Basic Auth in Postman for all requests:
 
