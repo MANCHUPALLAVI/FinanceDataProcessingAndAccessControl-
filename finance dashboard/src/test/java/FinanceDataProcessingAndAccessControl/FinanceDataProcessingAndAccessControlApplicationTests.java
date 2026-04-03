@@ -1,0 +1,13 @@
+package FinanceDataProcessingAndAccessControl;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class FinanceDataProcessingAndAccessControlApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
