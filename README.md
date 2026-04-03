@@ -2,7 +2,7 @@
 
 **Overview**
 
-This project is a backend system for managing financial records and generating dashboard insights. It allows users to perform CRUD operations on financial data and provides summary analytics with role-based access control.
+This project is a backend system for managing financial records and generating dashboard insights. It allows users to perform CRUD operations on financial data and provides summary analytics. Authentication and role-based access are implemented to secure sensitive operations.
 
 **Technologies Used**
 
@@ -20,17 +20,19 @@ The application follows a layered architecture:
 - Repository → Handles database operations  
 - Entity → Represents database tables  
 
-**User Roles & Access**
+**User Roles & & Sample Credentials**
 
-| Role    | Access                                |
-|---------|--------------------------------------|
-| VIEWER  | Can only view dashboard & records    |
-| ANALYST | Can view and filter records          |
-| ADMIN   | Full access (create, update, delete) |
+| Role    | Username  | Password      | Access Description                                            |
+| ------- | --------- | ------------- | ------------------------------------------------------------- |
+| ADMIN   | `admin`   | `admin@123`   | Full access: create, update, delete users & financial records |
+| ANALYST | `analyst` | `analyst@123` | Can view records and dashboard insights                       |
+| VIEWER  | `viewer`  | `viewer@123`  | Read-only: can only view dashboard data                       |
+
 
 > Role is passed via request header:  
 > `role : ADMIN`
 
+All users must authenticate with username (email) and password.
 
 **Features**
 
@@ -44,7 +46,15 @@ The application follows a layered architecture:
 
 **API Endpoints**
 
-**1️⃣ User Management (ADMIN only)**
+**1️⃣. Authentication**
+
+Use Basic Auth in Postman for all requests:
+
+Username: user's email
+
+Password: user's password
+
+**2️⃣ User Management (ADMIN only)**
 
 | Method | URL             | Description          |
 |--------|-----------------|----------------------|
@@ -63,7 +73,7 @@ The application follows a layered architecture:
   "role": "ADMIN"
 }
 
-**2️⃣ Financial Records**
+**3️⃣ Financial Records**
 
 | Method | URL               | Role                   | Description               |
 | ------ | ----------------- | ---------------------- | ------------------------- |
@@ -86,7 +96,7 @@ The application follows a layered architecture:
   "userId": 1
 }
 
-**3️⃣ Dashboard Summary**
+**4️⃣ Dashboard Summary**
 
 | Method | URL          | Role                   | Description           |
 | ------ | ------------ | ---------------------- | --------------------- |
@@ -177,7 +187,7 @@ SELECT * FROM financial_record;
    
 3. Run Spring Boot application
  
-4. Test APIs using Postman
+4. Test APIs using Postman with Basic Auth
 
 **Assumptions**
 
@@ -189,14 +199,14 @@ All data is stored in MySQL
 
 **Conclusion**
 
-This project demonstrates backend development skills including:
+This backend demonstrates:
 
-API design
-
-CRUD operations
+Authentication & password security
 
 Role-based access control
 
-Data validation and error handling
+CRUD operations for financial data
 
-Dashboard summary & aggregation
+Dashboard summaries with aggregated data
+
+Clean architecture using Controller → Service → Repository
