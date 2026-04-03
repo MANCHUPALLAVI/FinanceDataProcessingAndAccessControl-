@@ -145,9 +145,9 @@ SELECT * FROM user;
 SELECT * FROM financial_record;
 
 **How to Run**
-1. Start MySQL and create a database:
+**1. Start MySQL and create a database:**
    CREATE DATABASE finance_db;
-2. Update application.properties:
+**2. Update application.properties:**
    spring.datasource.url=jdbc:mysql://localhost:3306/finance_db
    spring.datasource.username=root
    spring.datasource.password=root
