@@ -1,23 +1,23 @@
 **FinanceDataProcessingAndAccessControl**
 
-Overview
+**Overview**
 This project is a backend system for managing financial records and generating dashboard insights. It allows users to perform CRUD operations on financial data and provides summary analytics with role-based access control.
 
-Technologies Used
+**Technologies Used**
 - Java
 - Spring Boot
 - Spring Data JPA
 - Spring Security
 - MySQL
 
-Project Structure
+**Project Structure**
 The application follows a layered architecture:
 - Controller → Handles API requests  
 - Service → Contains business logic  
 - Repository → Handles database operations  
 - Entity → Represents database tables  
 
-User Roles & Access
+**User Roles & Access**
 
 | Role    | Access                                |
 |---------|--------------------------------------|
@@ -29,7 +29,7 @@ User Roles & Access
 > `role : ADMIN`
 
 
-Features
+**Features**
 - Create financial records  
 - View all records
 - Update records 
@@ -38,9 +38,9 @@ Features
 - Role-based access control  
 - Input validation (e.g., amount > 0)  
 
-API Endpoints
+**API Endpoints**
 
-1️⃣ User Management (ADMIN only)
+**1️⃣ User Management (ADMIN only)**
 
 | Method | URL             | Description          |
 |--------|-----------------|----------------------|
@@ -49,8 +49,8 @@ API Endpoints
 | PUT    | `/users/{id}`   | Update user          |
 | DELETE | `/users/{id}`   | Deactivate user      |
 
-Sample Request (Create User):
-JSON
+**Sample Request (Create User):**
+**JSON Format**
 {
   "name": "John Doe",
   "email": "john@example.com",
@@ -58,7 +58,7 @@ JSON
   "role": "ADMIN"
 }
 
-2️⃣ Financial Records
+**2️⃣ Financial Records**
 
 | Method | URL               | Role                   | Description               |
 | ------ | ----------------- | ---------------------- | ------------------------- |
@@ -68,8 +68,8 @@ JSON
 | DELETE | `/records/{id}`   | ADMIN                  | Delete record             |
 | GET    | `/records/filter` | ANALYST, ADMIN         | Filter by type & category |
 
-Sample Request (Create Record):
-JSON
+**Sample Request (Create Record):**
+**JSON Format**
 {
   "amount": 5000,
   "type": "INCOME",
@@ -79,14 +79,14 @@ JSON
   "userId": 1
 }
 
-3️⃣ Dashboard Summary
+**3️⃣ Dashboard Summary**
 
 | Method | URL          | Role                   | Description           |
 | ------ | ------------ | ---------------------- | --------------------- |
 | GET    | `/dashboard` | VIEWER, ANALYST, ADMIN | Get dashboard summary |
 
-Sample Response:
-JSON
+**Sample Response:**
+**JSON Format**
 {
   "totalIncome": 100000,
   "totalExpense": 3000,
@@ -108,16 +108,16 @@ JSON
   ]
 }
 
-Validation & Error Handling
+**Validation & Error Handling**
 * Amount must be > 0
 * Inactive users cannot create records
 * Invalid requests return descriptive error messages
 * Role-based restrictions enforced
 
-Database
-Database used: MySQL
-Tables:
-User
+**Database**
+**Database used: MySQL**
+**Tables:**
+**1. User**
 
 | Column   | Type    |
 | -------- | ------- |
@@ -128,7 +128,7 @@ User
 | role     | VARCHAR |
 | active   | BOOLEAN |
 
-FinancialRecord
+**2. FinancialRecord**
 
 | Column        | Type    |
 | ------------- | ------- |
@@ -140,12 +140,11 @@ FinancialRecord
 | description   | VARCHAR |
 | created_by_id | BIGINT  |
 
-Example Queries:
-
+**Example Queries:**
 SELECT * FROM user;
 SELECT * FROM financial_record;
 
-How to Run
+**How to Run**
 1. Start MySQL and create a database:
    CREATE DATABASE finance_db;
 2. Update application.properties:
@@ -156,17 +155,15 @@ How to Run
 3. Run Spring Boot application
 4. Test APIs using Postman
 
-Assumptions
+**Assumptions**
 Roles are passed via request headers (role: ADMIN/ANALYST/VIEWER)
 Authentication is simplified (no login system implemented)
 All data is stored in MySQL
 
-Conclusion
+**Conclusion**
 This project demonstrates backend development skills including:
 API design
 CRUD operations
 Role-based access control
 Data validation and error handling
 Dashboard summary & aggregation
-
-
