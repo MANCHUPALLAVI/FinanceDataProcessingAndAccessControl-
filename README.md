@@ -54,6 +54,7 @@ The application follows a layered architecture:
 | DELETE | `/users/{id}`   | Deactivate user      |
 
 **Sample Request (Create User):**
+
 **JSON Format**
 {
   "name": "John Doe",
@@ -155,6 +156,7 @@ The application follows a layered architecture:
 **Example Queries:**
 
 SELECT * FROM user;
+
 SELECT * FROM financial_record;
 
 **How to Run**
@@ -162,26 +164,39 @@ SELECT * FROM financial_record;
 **1. Start MySQL and create a database:**
 
    CREATE DATABASE finance_db;
+   
 **2. Update application.properties:**
 
    spring.datasource.url=jdbc:mysql://localhost:3306/finance_db
+   
    spring.datasource.username=root
-   spring.datasource.password=root
+   
+   spring.datasource.password=Root@123
+   
    spring.jpa.hibernate.ddl-auto=update
+   
 3. Run Spring Boot application
+ 
 4. Test APIs using Postman
 
 **Assumptions**
 
 Roles are passed via request headers (role: ADMIN/ANALYST/VIEWER)
+
 Authentication is simplified (no login system implemented)
+
 All data is stored in MySQL
 
 **Conclusion**
 
 This project demonstrates backend development skills including:
+
 API design
+
 CRUD operations
+
 Role-based access control
+
 Data validation and error handling
+
 Dashboard summary & aggregation
