@@ -1,9 +1,11 @@
 **FinanceDataProcessingAndAccessControl**
 
 **Overview**
+
 This project is a backend system for managing financial records and generating dashboard insights. It allows users to perform CRUD operations on financial data and provides summary analytics with role-based access control.
 
 **Technologies Used**
+
 - Java
 - Spring Boot
 - Spring Data JPA
@@ -11,6 +13,7 @@ This project is a backend system for managing financial records and generating d
 - MySQL
 
 **Project Structure**
+
 The application follows a layered architecture:
 - Controller → Handles API requests  
 - Service → Contains business logic  
@@ -30,6 +33,7 @@ The application follows a layered architecture:
 
 
 **Features**
+
 - Create financial records  
 - View all records
 - Update records 
@@ -69,7 +73,9 @@ The application follows a layered architecture:
 | GET    | `/records/filter` | ANALYST, ADMIN         | Filter by type & category |
 
 **Sample Request (Create Record):**
+
 **JSON Format**
+
 {
   "amount": 5000,
   "type": "INCOME",
@@ -86,7 +92,9 @@ The application follows a layered architecture:
 | GET    | `/dashboard` | VIEWER, ANALYST, ADMIN | Get dashboard summary |
 
 **Sample Response:**
+
 **JSON Format**
+
 {
   "totalIncome": 100000,
   "totalExpense": 3000,
@@ -109,14 +117,18 @@ The application follows a layered architecture:
 }
 
 **Validation & Error Handling**
+
 * Amount must be > 0
 * Inactive users cannot create records
 * Invalid requests return descriptive error messages
 * Role-based restrictions enforced
 
 **Database**
+
 **Database used: MySQL**
+
 **Tables:**
+
 **1. User**
 
 | Column   | Type    |
@@ -141,13 +153,17 @@ The application follows a layered architecture:
 | created_by_id | BIGINT  |
 
 **Example Queries:**
+
 SELECT * FROM user;
 SELECT * FROM financial_record;
 
 **How to Run**
+
 **1. Start MySQL and create a database:**
+
    CREATE DATABASE finance_db;
 **2. Update application.properties:**
+
    spring.datasource.url=jdbc:mysql://localhost:3306/finance_db
    spring.datasource.username=root
    spring.datasource.password=root
@@ -156,11 +172,13 @@ SELECT * FROM financial_record;
 4. Test APIs using Postman
 
 **Assumptions**
+
 Roles are passed via request headers (role: ADMIN/ANALYST/VIEWER)
 Authentication is simplified (no login system implemented)
 All data is stored in MySQL
 
 **Conclusion**
+
 This project demonstrates backend development skills including:
 API design
 CRUD operations
